@@ -1,0 +1,27 @@
+# Ignore Python artifacts
+__pycache__/
+*.py[cod]
+*.class
+*.pyc
+venv/
+.venv/
+env/
+
+# Ignore databases and sensitive data
+*.db
+*.sqlite3
+*.log
+*.env
+*.key
+*.bak
+*.iss
+*.spec
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignore local builds
+dist/
+build/
