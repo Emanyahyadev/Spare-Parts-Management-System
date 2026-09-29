@@ -509,5 +509,5 @@ As the **Lead Architect & Full-Stack Developer**, I developed the custom platfor
 ---
 
 <div align="center">
-  <sub>Developed for Munir Enterprises • Engineered by Abdul Nafay</sub>
+  <sub>Developed for Munir Enterprises • Engineered by Eman Yahya</sub>
 </div>
