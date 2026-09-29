@@ -1,16 +1,17 @@
-# Spare Parts Management & Sales System
+# Munir Enterprises — Spare Parts Management & Sales System
 
 <div align="center">
-  <img src="screenshots/logo.png" alt="System Logo" width="180" style="margin-bottom: 15px;"/>
+  <img src="screenshots/logo.png" alt="Munir Enterprises Logo" width="180" style="margin-bottom: 15px;"/>
   <br/>
-  <h3>Enterprise Inventory, Multi-Machine Compatibility Cross-Referencing & POS Ledger System</h3>
-  <p><em>A specialized, offline-first business management platform engineered for industrial textile and garment machinery spare parts retail, distribution, and financial accounting.</em></p>
+  <h2>Munir Enterprises — Industrial Spare Parts & POS Management System</h2>
+  <p><em>A custom enterprise business management platform engineered for <strong>Munir Enterprises</strong> for industrial sewing and textile machinery spare parts inventory, multi-machine cross-referencing, POS billing, and ledger accounting.</em></p>
 
   <p>
     <a href="#-system-architecture"><img src="https://img.shields.io/badge/Architecture-Normalized%20Relational%20%2B%20FTS5-0052CC?style=for-the-badge&logo=sqlite&logoColor=white" alt="Architecture" /></a>
     <a href="#-technology-stack"><img src="https://img.shields.io/badge/Stack-Python%20%7C%20Flask%20%7C%20Vanilla%20JS-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Tech Stack" /></a>
     <a href="#-machinery--parts-catalog-statistics"><img src="https://img.shields.io/badge/Dataset-25%2C299%20Parts%20%7C%2041%20Machines-4CAF50?style=for-the-badge" alt="Dataset" /></a>
-    <a href="#-project-status"><img src="https://img.shields.io/badge/Status-Live%20Commercial%20Deployment-success?style=for-the-badge" alt="Status" /></a>
+    <a href="#-project-status--deployment"><img src="https://img.shields.io/badge/Client-Munir%20Enterprises-orange?style=for-the-badge" alt="Client" /></a>
+    <a href="#-project-status--deployment"><img src="https://img.shields.io/badge/Status-Live%20Commercial%20Deployment-success?style=for-the-badge" alt="Status" /></a>
   </p>
 </div>
 
@@ -18,7 +19,7 @@
 
 ## 📑 Table of Contents
 - [Executive Overview](#-executive-overview)
-- [Business Problem & Industry Challenges](#-business-problem--industry-challenges)
+- [Client Context & Business Problem](#-client-context--business-problem)
 - [The Engineering Solution](#-the-engineering-solution)
 - [Core Functional Modules](#-core-functional-modules)
 - [Machinery & Parts Catalog Statistics](#-machinery--parts-catalog-statistics)
@@ -37,38 +38,38 @@
 - [Technology Stack Matrix](#-technology-stack-matrix)
 - [Key Engineering Highlights & Algorithms](#-key-engineering-highlights--algorithms)
 - [Role & Engineering Contributions](#-role--engineering-contributions)
-- [Project Status](#-project-status)
+- [Project Status & Deployment](#-project-status--deployment)
 - [Proprietary Notice & Privacy Policy](#-proprietary-notice--privacy-policy)
 
 ---
 
 ## 🌟 Executive Overview
 
-The **Spare Parts Management & Sales System** is an offline-first commercial desktop platform designed to eliminate the massive friction in industrial machinery spare parts retail. 
+The **Munir Enterprises Spare Parts Management & Sales System** is a custom enterprise platform architected and developed specifically for **Munir Enterprises**, a premier distributor and retailer of industrial sewing and textile equipment spare parts.
 
-Operating in an industry characterized by complex equipment (overlock machines, lockstitchers, interlock coverstitchers, automated bartackers, and cutting units), the software serves as the central operational backbone—unifying **25,299 unique spare parts**, **76,987 machine diagram cross-references**, and **41 heavy industrial machine models** across **14 international manufacturers**.
+Industrial apparel machinery (overlockers, direct-drive lockstitchers, flatbed coverstitchers, automated electronic bartackers, buttonholers, and straight-knife cutting machines) involves intricate sub-assemblies and tens of thousands of individual mechanical components.
 
-It seamlessly integrates technical OEM parts manuals with real-time shop-floor retail workflows: instant symbol-agnostic catalog search, bin and rack physical warehouse navigation, rapid Point-of-Sale (POS) invoicing, and automated double-entry customer/vendor credit accounting (*Khata*).
+To streamline Munir Enterprises' counter sales, warehouse management, and commercial accounting, this platform unifies **25,299 unique spare parts**, **76,987 machine diagram cross-references**, and **41 heavy industrial machine models** across **14 international manufacturers**. It serves as an all-in-one operational system connecting OEM technical manuals to physical warehouse bins (`Rack`/`Bin`), rapid POS billing, and automated customer/vendor credit ledgers (*Khata*).
 
 ---
 
-## 🛑 Business Problem & Industry Challenges
+## 🏢 Client Context & Business Problem
 
-Industrial spare parts distribution is plagued by operational complexities that conventional generic POS/ERP systems cannot handle:
+Prior to the deployment of this custom platform at **Munir Enterprises**, the daily retail and wholesale distribution operations faced critical bottlenecks:
 
 1. **Extreme Cross-Machine Compatibility**:
-   - A single standardized industrial part (e.g., a specific needle clamp, looper thread guide, or presser foot screw) is frequently shared across 5 to 15 distinct machine models and multiple schematic sections.
-   - *Traditional Failure Mode*: Standard inventory software forces shops to create duplicate records per machine model, causing phantom inventory, fractured stock levels, and severe stock reconciliation errors.
-2. **Search Latency & Customer Counter Bottlenecks**:
-   - Customers request parts under different variations: OEM catalog numbers (`B1521-555-000`), punctuation-stripped numbers (`B1521555000`), machine model references (`Juki DDL-8700 needle bar`), or colloquial Urdu/English vernacular names.
-   - *Traditional Failure Mode*: Cashiers manually browse through thick, multi-hundred-page paper parts books while customers wait, leading to long queues and lost transactions.
-3. **Dual Identity of Parts (Catalog vs. Physical Stock)**:
-   - Parts possess two distinct sets of metadata:
-     - **OEM Engineering Data**: Schematic reference number, section name (e.g., "Needle Bar Mechanism"), diagram page, and manufacturer catalog quantities.
-     - **Shop Operational Data**: Physical warehouse coordinates (`Rack B-04`, `Bin 12`), local purchase cost, tiered sale prices, vendor source, and vernacular descriptions.
-4. **Credit Accounting (*Khata*) & Offline Operational Reality**:
-   - Commercial industrial retail runs heavily on credit relationships. Payments are made in partial installments, requiring continuous ledger balancing and credit limit tracking.
-   - Cloud-dependent SaaS solutions introduce catastrophic downtime risks during internet outages in wholesale markets.
+   - Standardized parts (needle clamps, loopers, feed dogs, tension disks, screws) fit across multiple machine models and diagram sub-sections.
+   - *Problem*: Generic inventory software required creating duplicate entries for each machine, leading to fractured stock numbers, phantom inventory, and stockout errors.
+2. **High-Speed Counter Sales & Search Latency**:
+   - Customers arrive at Munir Enterprises requesting parts via varying formats: official OEM part codes (`B1521-555-000`), punctuation-stripped numbers (`B1521555000`), machine model names (`Juki 8700 needle bar`), or colloquial Urdu/English trade names.
+   - *Problem*: Manually thumbing through heavy paper parts manuals caused customer wait times and counter congestion.
+3. **Dual Data Lifecycle (OEM Catalogs vs. Shop Inventory)**:
+   - Parts required two distinct contexts:
+     - **OEM Technical Blueprint**: Exploded diagram reference numbers, section names (e.g., *Needle Bar & Thread Take-up Mechanism*), page numbers, and catalog quantities.
+     - **Munir Enterprises Physical Inventory**: Physical warehouse coordinates (`Rack B-04`, `Bin 12`), purchase cost, dynamic selling prices, supplier links, and vernacular Urdu descriptions.
+4. **Credit Accounting (*Khata*) & Zero-Downtime Offline Needs**:
+   - Industrial wholesale depends heavily on customer credit accounts with rolling balances and partial collections.
+   - Cloud-dependent web software suffered from internet unreliability in commercial wholesale markets, making a high-speed offline desktop solution an absolute necessity.
 
 ---
 
@@ -76,7 +77,7 @@ Industrial spare parts distribution is plagued by operational complexities that 
 
 ```
 ┌───────────────────────────────────────────────────────────────────────────────────────┐
-│                           THE UNIFIED ARCHITECTURAL SOLUTION                          │
+│                    MUNIR ENTERPRISES UNIFIED PLATFORM ARCHITECTURE                    │
 ├───────────────────────────────┬───────────────────────────────┬───────────────────────┤
 │    Catalog Blueprint Layer    │    Physical Inventory Layer   │  Financial & POS Layer│
 │  (Many-to-Many Cross Mappings)│   (Unique Physical Stock Bin) │  (Real-Time Balances) │
@@ -89,38 +90,41 @@ Industrial spare parts distribution is plagued by operational complexities that 
 └───────────────────────────────┴───────────────────────────────┴───────────────────────┘
 ```
 
-The system addresses these domain requirements by:
-- **Decoupling Blueprint Data from Physical Stock**: Implementing a clean relational many-to-many bridge (`catalog_entries`) connecting machines to unified product stock bins. One single physical bin of screws serves every compatible machine automatically.
-- **Sub-5ms Symbol-Agnostic FTS5 Search**: An indexed full-text engine tokenizing codes and names into alphanumeric normalized keys (`normalize_code()`), allowing instant fuzzy and punctuation-independent retrieval.
-- **Zero-Latency Standalone Architecture**: Packaged as an offline-first Windows desktop executable using an embedded high-performance SQLite engine with zero internet dependency and automated backup routines.
+The system delivered for Munir Enterprises provides:
+- **Normalized Many-to-Many Relational Structure**: Cleanly isolates OEM technical blueprints from physical stock bins. One physical bin in the warehouse serves all compatible machines automatically.
+- **Sub-5ms Symbol-Agnostic FTS5 Search**: An indexed full-text engine tokenizing codes and names into alphanumeric keys (`normalize_code()`), resolving search queries instantly regardless of hyphens, slashes, or spacing.
+- **High-Speed Keyboard-Driven POS**: Complete point-of-sale cashier terminal supporting live stock deduction, split payments (Cash / Credit Khata / Bank), and instant thermal receipt printing.
+- **Double-Entry Customer & Vendor Khata**: Real-time balance tracking, credit limit enforcement, and printable account statements.
+- **Self-Contained Standalone Windows Deployment**: Low-footprint, zero cloud dependency, node-locked hardware activation, and automated database backups.
 
 ---
 
 ## ⚙️ Core Functional Modules
 
-- **🔍 Intelligent Multi-Parametric Search**: Search by full/partial part codes, manufacturer, machine model, section title, or vernacular part names with sub-millisecond response.
-- **📚 Interactive Machinery Catalog**: Browse all 41 industrial machines hierarchically by brand, model, sub-assembly section, and schematic reference number.
-- **⚡ High-Throughput Point-of-Sale**: Keyboard-driven checkout workflow with live stock checks, price overrides, customizable line discounts, and thermal receipt generation.
-- **📦 Warehouse & Rack Location Engine**: Binds every inventory item to exact physical warehouse coordinates (`Rack`, `Row`, `Bin`) for immediate retrieval.
-- **📒 Customer Ledger & Credit Khata**: Real-time customer balance calculations, credit limit enforcement, partial payment logging, and balance statements.
-- **🚚 Vendor Procurement & Payables**: Supplier consignment intake, weighted average cost updates, and payment reconciliation.
-- **🚨 Stock Movement & Audit Logging**: Immutable chronological event logging for stock movements (`sale`, `purchase`, `adjustment`, `return`) and master price modifications.
+- **🔍 Multi-Parametric Search Engine**: Instant lookup across 25,000+ parts by part number, model, section, or English/Urdu keywords in under 5 milliseconds.
+- **📚 Interactive Machinery Catalog**: Visual navigation across 41 industrial machine models, sub-assemblies, schematic reference numbers, and page guides.
+- **⚡ Point-of-Sale (POS) & Billing**: Rapid checkout terminal with keyboard shortcuts, live cart calculations, flexible discounts, and instant thermal receipt generation.
+- **📦 Warehouse Rack Location System**: Binds each item to its physical storage coordinates (`Rack`, `Row`, `Bin`) for warehouse fulfillment.
+- **📒 Customer Ledger (*Khata*)**: Real-time customer balance calculations, credit limit controls, and transaction statements.
+- **🚚 Vendor Procurement & Payables**: Supplier consignment intake, automated weighted average cost updates, and payment ledgers.
+- **🚨 Stock Movement & Audit Trail**: Chronological event logging for all stock moves (`sale`, `purchase`, `adjustment`, `return`) and master price modifications.
 
 ---
 
 ## 📊 Machinery & Parts Catalog Statistics
 
-The platform manages an extensive industrial catalog comprising **25,299 unique products** and **76,987 machine-to-part cross-reference mappings** across **41 machine models** from **14 manufacturers**:
+The Munir Enterprises platform manages an extensive dataset extracted, normalized, and indexed across 14 major equipment manufacturers:
 
 ### Summary Metrics
-| Metric | Count / Benchmark |
+| Metric | Benchmark Count |
 | :--- | :--- |
-| **Total Equipment Manufacturers** | **14 Global Brands** |
-| **Total Industrial Machine Models** | **41 Dedicated Models** |
+| **Client / System Deployment** | **Munir Enterprises** |
+| **Total Equipment Manufacturers** | **14 International Brands** |
+| **Total Industrial Machine Models** | **41 Machine Catalogs** |
 | **Total Unique Spare Parts** | **25,299 Parts** |
 | **Active Cataloged Inventory** | **24,054 Products** |
 | **Total Machine-to-Part Mappings** | **76,987 Cross-References** |
-| **Average Query Retrieval Speed** | **< 5 ms** |
+| **Average Query Retrieval Speed** | **< 5 ms (SQLite FTS5)** |
 
 ### Complete Machine & Parts Breakdown Table
 | Manufacturer | Machine Model | Cataloged Parts | Industrial Machine Category / Function |
@@ -171,7 +175,7 @@ The platform manages an extensive industrial catalog comprising **25,299 unique 
 
 ## 📸 Visual Interface Walkthrough & Technical Details
 
-Below is a detailed examination of the user interfaces, accompanied by screenshots, highlighting the business utility, UI workflows, and backend engineering implementations.
+Below is a walkthrough of the production user interfaces developed for Munir Enterprises, illustrating the user experience, workflow, and backend architectural implementations.
 
 ---
 
@@ -182,12 +186,12 @@ Below is a detailed examination of the user interfaces, accompanied by screensho
 </div>
 
 #### 📋 Business Purpose & Workflow
-The central command console providing cashiers and store managers with an immediate snapshot of daily business health. It aggregates total cataloged parts, active stock values, low inventory alerts, today's sales revenue, and outstanding customer Khata receivables into responsive KPI cards.
+The central dashboard provides the Munir Enterprises management team and cashier staff with real-time operational visibility: total cataloged items, low stock warnings, daily sales volume, and total outstanding customer credit receivables.
 
 #### 🔧 Technical & Architectural Implementation
-- **Fast Metric Aggregation**: Queries pre-indexed summary views in SQLite with sub-10ms rendering time.
-- **Quick Action Hub**: Single-keystroke navigation to Point-of-Sale (`POS`), Universal Search, Stock Inward, and Customer Accounts.
-- **Low-Stock Notification Badge**: Dynamically highlights products whose `stock_qty <= min_level`.
+- **Instant Metric Aggregation**: Queries indexed summary views in SQLite with sub-10ms latency.
+- **Quick Action Hub**: Instant keyboard shortcuts to Point-of-Sale (`POS`), Universal Search, Stock Inward, and Customer Accounts.
+- **Automated Reorder Badging**: Dynamically highlights products requiring replenishment where `stock_qty <= min_level`.
 
 ---
 
@@ -198,12 +202,12 @@ The central command console providing cashiers and store managers with an immedi
 </div>
 
 #### 📋 Business Purpose & Workflow
-Enables shop counter staff to locate any spare part in under a second while attending customers. Staff can enter raw part numbers, fragmented codes, model names, or Urdu/English terms (e.g., `tension disc`, `bobbincase`, `looper`). The interface displays physical rack locations, live stock counts, pricing, and compatible machine models.
+Enables counter sales staff to locate any spare part in less than a second while attending customers. Staff can search using fragmented part numbers, machine models, or colloquial terms. Results display physical rack coordinates (`Rack B-04`), live stock levels, sales prices, and multi-machine compatibility.
 
 #### 🔧 Technical & Architectural Implementation
-- **SQLite FTS5 Trigram Engine**: Leverages virtual full-text search tables synchronized via SQLite triggers.
-- **Separator-Free Code Key Tokenization**: The backend applies `normalize_code(code)` to strip all hyphens, slashes, and periods into an uppercase alphanumeric key (`B1521-555-000` -> `B1521555000`), allowing matches regardless of input format.
-- **Cross-Compatibility Counter**: Displays an interactive badge indicating how many machine models share the part.
+- **SQLite FTS5 Trigram Engine**: Leverages virtual full-text search tables synchronized with master inventory.
+- **Code Normalization Engine**: Preprocesses part codes through `normalize_code(code)` to strip hyphens, slashes, and spaces (`B1521-555-000` -> `B1521555000`), guaranteeing instant matches regardless of punctuation.
+- **Compatibility Badge**: Shows real-time count of compatible machine models sharing the part.
 
 ---
 
@@ -214,12 +218,12 @@ Enables shop counter staff to locate any spare part in under a second while atte
 </div>
 
 #### 📋 Business Purpose & Workflow
-Allows technicians and mechanics to browse industrial machinery catalogs organized by brand (Juki, Brother, Pegasus, Yamato, etc.) and model. Selecting a machine reveals all corresponding schematic sub-assemblies (e.g., *Needle Bar & Thread Take-up Mechanism*, *Feed Dog Assembly*, *Hook Driving Shaft*), exploded diagram reference numbers, and original catalog pages.
+Allows technicians, machinists, and storekeepers to browse equipment catalogs organized by brand (Juki, Brother, Pegasus, Yamato, etc.) and model. Selecting a machine displays all schematic sub-assemblies (e.g., *Needle Bar Mechanism*, *Feed Dog Assembly*, *Hook Driving Shaft*), exploded diagram reference numbers, and catalog pages.
 
 #### 🔧 Technical & Architectural Implementation
-- **Relational Many-to-Many Traversal**: Queries `machines` joined with `catalog_entries` and `products`.
-- **Schematic Reference Mapping**: Retains exact OEM reference numbers (Ref #) and PDF page indexes for visual verification against paper manuals.
-- **Section Grouping & Filtering**: Dynamic server-side pagination and grouping to handle machines with over 4,800 mapped parts smoothly.
+- **Many-to-Many Relational Traversal**: Joins `machines` -> `catalog_entries` -> `products`.
+- **Schematic Reference Mapping**: Retains exact OEM reference numbers (Ref #) and PDF page indexes for visual verification.
+- **Section Grouping & Pagination**: Server-side pagination handling machines with up to 4,820 individual parts smoothly.
 
 ---
 
@@ -230,10 +234,10 @@ Allows technicians and mechanics to browse industrial machinery catalogs organiz
 </div>
 
 #### 📋 Business Purpose & Workflow
-The comprehensive master record of a single spare part. Displays dual metadata: OEM engineering specs (original name, code, manufacturer) and physical shop data (rack coordinates, custom name, unit purchase cost, selling price, current stock, and safety threshold). Crucially, it displays an interactive table of every machine model compatible with this part.
+The master record for a single inventory item. Displays OEM engineering specs alongside Munir Enterprises' physical shop data (rack coordinates, custom name, unit purchase cost, selling price, current stock, and safety threshold). Features an interactive matrix of every compatible machine model.
 
 #### 🔧 Technical & Architectural Implementation
-- **Single-Source Inventory Integrity**: Updates to stock, rack, or price propagate instantly to all machine associations without data redundancy.
+- **Single-Source Stock Integrity**: Modifications to rack coordinates or pricing propagate instantly to all machine associations.
 - **Compatibility Cross-Join Query**: 
   ```sql
   SELECT m.model, mf.name as manufacturer, ce.section, ce.ref_number, ce.pdf_page
@@ -242,7 +246,7 @@ The comprehensive master record of a single spare part. Displays dual metadata: 
   JOIN manufacturers mf ON m.manufacturer_id = mf.id
   WHERE ce.product_id = ?;
   ```
-- **Live Stock Indicator & Edit Triggers**: Allows on-the-fly rack updates and price adjustments with automatic audit log recording.
+- **Live Stock Indicator & Edit Triggers**: Allows immediate price adjustments and stock modifications with automatic audit logging.
 
 ---
 
@@ -253,7 +257,7 @@ The comprehensive master record of a single spare part. Displays dual metadata: 
 </div>
 
 #### 📋 Business Purpose & Workflow
-Designed for rapid checkout during peak shop hours. Cashiers search parts directly inside the POS screen, add items to the dynamic cart, adjust quantities, apply item-level or bill-level discounts, and select the customer. Supports one-click payment mode toggling (Cash, Customer Khata Credit, or Bank Deposit).
+Engineered for rapid checkout during rush counter hours. Cashiers search parts directly inside the POS screen, add items to the cart, adjust quantities, apply discounts, and assign the customer. Supports one-click payment mode toggling (Cash, Customer Khata Credit, or Bank Deposit).
 
 #### 🔧 Technical & Architectural Implementation
 - **Vanilla JavaScript Reactive Cart**: Zero-dependency client-side cart calculation with instant total, tax, and discount computations.
@@ -330,7 +334,7 @@ The system is architected as a modular, three-tier desktop application optimized
 
 ```mermaid
 graph TD
-    subgraph ClientLayer ["🖥️ Presentation & Cashier Layer (HTML5 / CSS3 / Vanilla ES6)"]
+    subgraph ClientLayer ["Presentation & Cashier Layer (HTML5 / CSS3 / Vanilla ES6)"]
         UI_Dash[Executive Dashboard]
         UI_FTS[Sub-5ms FTS Search]
         UI_POS[POS Billing Terminal]
@@ -338,7 +342,7 @@ graph TD
         UI_Ledger[Customer & Vendor Khata]
     end
 
-    subgraph AppLayer ["⚡ Application & Business Logic (Python 3.12 / Flask Engine)"]
+    subgraph AppLayer ["Application & Business Logic (Python 3.12 / Flask Engine)"]
         Ctrl_Search[Search & Token Normalizer]
         Ctrl_POS[POS & Invoicing Transaction Manager]
         Ctrl_Stock[Stock Intake & Inventory Guard]
@@ -346,14 +350,14 @@ graph TD
         Ctrl_Audit[Audit Logging & Backup Service]
     end
 
-    subgraph StorageLayer ["💾 Relational Database & FTS Engine (SQLite3)"]
+    subgraph StorageLayer ["Relational Database & FTS Engine (SQLite3)"]
         DB_Prod[(products - Master Stock & Bins)]
         DB_Mach[(machines & manufacturers)]
         DB_CatEntry[(catalog_entries - Many-to-Many Join)]
         DB_Sales[(sales & sale_items)]
         DB_Khata[(customers, vendors & payments)]
         DB_Moves[(stock_moves & audit_log)]
-        DB_FTS5[("⚡ products_fts (FTS5 Virtual Table)")]
+        DB_FTS5[(products_fts - FTS5 Virtual Table)]
     end
 
     ClientLayer --> AppLayer
@@ -415,7 +419,7 @@ graph TD
 
 ## 🔄 End-to-End Operational Workflows
 
-### 1. POS Sale & Inventory Deduct Transaction Cycle
+### POS Sale & Inventory Deduct Transaction Cycle
 
 ```mermaid
 sequenceDiagram
@@ -465,20 +469,20 @@ sequenceDiagram
 
 ## 💡 Key Engineering Highlights & Algorithms
 
-1. **Many-to-Many Catalog Separation**:
-   Eliminated duplicate inventory records across 41 industrial machine catalogs by introducing the `catalog_entries` normalization bridge. One physical bin of screws in `Rack A-02` now automatically links to 12 different machine schematics.
+1. **Many-to-Many Catalog Normalization**:
+   Eliminated duplicate inventory records across 41 industrial machine catalogs by introducing the `catalog_entries` normalization bridge. One physical bin of screws in `Rack A-02` automatically maps to 12 different machine schematics.
 2. **Separator-Free Code Key Search**:
    Industrial part numbers are inconsistent across manufacturers (e.g., `B1521-555-000`, `B1521.555.000`, `B1521 555 000`). The system automatically indexes an alphanumeric key `B1521555000` via automated triggers, ensuring 100% search accuracy regardless of punctuation.
 3. **Atomic Financial & Stock Transactions**:
    All stock deductions, invoice insertions, ledger balance updates, and stock move records are executed inside atomic `BEGIN ... COMMIT` database transactions to prevent partial writes during system interruptions.
 4. **Air-Gapped Offline-First Reliability**:
-   Engineered to run seamlessly without an active internet connection, featuring automated database backups on startup and shutdown to protect business data against power failures.
+   Engineered to run seamlessly without an active internet connection, featuring automated database backups on startup and shutdown to protect business data against power interruptions.
 
 ---
 
 ## 👨‍💻 Role & Engineering Contributions
 
-As the **Lead Architect & Full-Stack Developer**, I had end-to-end ownership of the system's design and delivery:
+As the **Lead Architect & Full-Stack Developer**, I developed the custom platform for **Munir Enterprises**:
 - **System Architecture**: Designed the normalized relational schema, FTS5 virtual tables, and transactional ledger model.
 - **Data Engineering**: Implemented the extraction and normalization pipeline that ingested 76,000+ parts mappings from 41 OEM machine manuals.
 - **Application Development**: Built the Flask backend APIs, reactive JavaScript POS cart, and thermal printing stylesheets.
@@ -486,23 +490,24 @@ As the **Lead Architect & Full-Stack Developer**, I had end-to-end ownership of 
 
 ---
 
-## 🚀 Project Status
+## 🚀 Project Status & Deployment
 
+- **Client**: **Munir Enterprises**
 - **Status**: **Completed & Deployed in Commercial Production**
-- **Operational Profile**: Serves as the primary inventory, POS, and financial ledger platform in a high-volume industrial machinery spare parts distribution store.
-- **Maintenance**: Actively maintained with automated database backup routines and performance monitoring.
+- **Operational Profile**: Live production backbone powering daily retail counter sales, warehouse inventory management, and financial accounting.
+- **Maintenance**: Active operational support with automated local backup routines.
 
 ---
 
 ## 🔒 Proprietary Notice & Privacy Policy
 
 > **Intellectual Property & Portfolio Notice:**  
-> This repository is a **public portfolio case study and architectural reference**.  
+> This repository is a **public portfolio case study and architectural reference** of the custom software developed for Munir Enterprises.  
 > 
-> The underlying source code, database dumps, and proprietary business datasets are private commercial intellectual property and are **not distributed publicly**. All screenshots and examples displayed in this documentation feature sanitized demonstration data.
+> The underlying source code, database implementations, and client business datasets are private commercial assets and are **not distributed publicly**. All screenshots and examples displayed in this documentation feature sanitized demonstration data.
 
 ---
 
 <div align="center">
-  <sub>Engineered by Abdul Nafay • Specialized in Desktop Systems, Database Architecture & POS Engineering</sub>
+  <sub>Developed for Munir Enterprises • Engineered by Abdul Nafay</sub>
 </div>
